@@ -1,0 +1,44 @@
+\section{Error Analysis}
+
+In this section, we would see the error analysis of the approximation algorithm we are using and we show that as we increase the value of k, the error would tend to zero.
+\subsection{Theory}
+For the analysis, we assume that $u^{(m)}(t)$ is continuous and bounded on $(0,1)$. Mathematically, \\
+$\exists M > 0, \forall t \in (0,1), |u^{(m)}(t)| \leq M$\\
+We need to calculate $D_*^\alpha u(t) - D_*^\alpha u_k(t)$ and find out it's limit as $k \rightarrow \infty$. \\ For this purpose, we use the following theorem. \\~\\
+
+\textbf{Theorm 6.1} Suppose that the function $D_*^\alpha u_k(t)$ obtained by haar wavelets are the approximation of $D_*^\alpha u(t)$, then we have exact upper bound as follows;
+\begin{equation*}
+\norm {D_*^\alpha u(t) - D_*^\alpha u_k(t)}_E \leq \frac{M}{\Gamma(m-\alpha).(m-\alpha)}\frac{1}{[1-2^{2(\alpha -m)}]^\frac{1}{2}} \frac{1}{k^{m-\alpha}}
+\end{equation*}
+where $ || u(t) ||_E = ( \int_0^1 u^2(t) dt )^{\frac{1}{2}}$.
+
+\\~\\ We can see clearly that the error tends to zero as $k \rightarrow \infty$. This concludes that Haar wavelets method is convergent when it is used to solve numerical solution of fractional differential equations.
+\\
+\subsection{Estimation of M}
+
+The integration of Haar wavelets is expandable into Haar series with Haar coefficient matrix $Q_{k \times k}$, which is also called operational matrix of integration.
+
+So, if we approximate $u^{(m)}(t)$ as $b^TH_k(t)$, then we can approximate $u(t)$ as $b^TQ_{k \times k}^m H_k(t)$ by repeatedly integrating and approximating.
+
+Writing in Matrix form,
+
+$u^T =b^T Q_{k \times k}^m H_{k \times k}$.
+
+Solving this equation, we can find $b^T$ and therefore, we can estimate $u^{(m)}(x_i)$ for each $i$. We can safely take the upper bound as 
+\begin{equation*}
+\epsilon + \max_{0 \leq i \leq l}u^{(i)}(x_i).
+\end{equation*}
+
+\subsection{Implementation}
+This sections shows the implementation to calculate the error bounds in MATLAB. \\
+1. Error.m
+ {\fontfamily{pcr}\selectfont \footnotesize{\lstinputlisting[language=Octave]{Error.m}}}
+ 
+ 2. return\_error\_bound.m
+  
+ {\fontfamily{pcr}\fontsize{7pt}{7.5pt}\selectfont \lstinputlisting{return_error_bound.m}}
+
+  \section{References}
+  
+  1. Y.Chen et al. Error analysis of fractional differential equation by Haar wavelets method, Journal of Computational Science 3 (2012) 367 - 373. \\~\\
+  2. K.P.\_Ramachandran, Insight into wavelets

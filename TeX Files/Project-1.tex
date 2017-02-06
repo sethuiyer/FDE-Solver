@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{listings}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\begin{document}
+
+\pagenumbering{gobble}
+\title{ A Project report on \\ \textbf{Implementation of Wavelets to Solve \\ Mathematical Problems}}
+\author { Sethurathienam Iyer S  - 2013B4A7720G\\ Rishabh Khurana - 2013B4A7785G}
+\date{}
+\maketitle
+
+\hspace{0.9cm}\fontsize{12}{15}\selectfont Submitted in the partial fulfillment of requirements of  \\  \vspace{0.3cm}
+
+  \hspace{2cm}\textbf{MATH F376 - DESIGN PROJECT}  \vspace{0.3cm}
+  
+  \hspace{3cm} Under the Supervision of \vspace{0.3cm}
+  
+  \hspace{3.8cm} Dr. Amit Setia \vspace{0.2cm}
+   
+   
+\hspace{1.2cm} \includegraphics[scale=0.5]{lol.png}\\ 
+\hspace{2.5cm}\textbf{ \centering BIRLA INSTITUTE OF TECHNOLOGY AND SCIENCE,\\
+\hspace{0.5cm} PILANI - K.K. BIRLA GOA CAMPUS \\ 
+\hspace{3.5cm} August 2015 - December 2015}
+ 
+ \newpage
+ \fontsize{12}{18}\selectfont
+ \tableofcontents
+ \addcontentsline{toc}{1}{Acknowledgement \\}
+ \addcontentsline{toc}{1}{Abstract \\ }
+ 
+ \newpage
+ \normalsize
+ \pagenumbering{arabic}
+ \raggedright
+ \hspace{3.5cm}\title{\textbf{\huge{Acknowledgement}}} \vspace{0.5cm} \\
+We would like to thank our mentor and instructor in charge Dr. Amit Setia for providing us this wonderful opportunity to explore this field of fractional differential equations. We would also like to thank him for having faith in us and for his patience. \\
+
+We would also like to thank all our friends who helped us through the completion of this project. Finally we would like to thank our family and friends for their continuous support and the confidence they bestowed upon us during this project.
+
+\newpage
+\hspace{3.5cm}\title{\textbf{\huge{Abstract}}} \vspace{0.5cm} \\
+This report presents an overview of the techniques which are used to find out the numerical solutions of fractional differential equations using Haar wavelets. \vspace{0.4cm} \\ 
+ We chose to use MATLAB as it is powerful high level language which provides interactive enviornment for numerical computations. Firstly, we discuss about approximating the functions using haar wavelets. We can approximate any functions over any interval with desired accuracy.
+\vspace{0.4cm} \\
+The following section discusses the theory of solving fractional differential equation followed by its implementation. We extend the idea to system of fractional differential and show it's implementation as well.  \vspace{0.4cm} \\
+The concluding section discusses about the error analysis for numerical solution of fractional differential equations to conclude that the method we use to calculate the solution is indeed convergent.
+\newpage
+\input{Chapter1}
+\newpage
+\input{Chapter2}
+\newpage
+\input{Chapter3}
+
+\end{document}

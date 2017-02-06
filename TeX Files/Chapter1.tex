@@ -1,0 +1,57 @@
+\section{Haar Approximation of functions}
+
+Wavelet analysis is a relatively new area in mathematics research. It has been applied widely in signal analysis, time-frequency analysis and numerical analysis.\\ Functions are expanded to summation of “basis
+functions”, and every “basis function” is achieved by compression and translation of a mother wavelet function with good properties of
+smoothness and locality, which makes people study the properties of integer and locality in the process of expressing functions.
+
+\subsection{Advantages of Wavelet Analysis}
+Wavelets were first introduced in seismology to provide a time dimension in seismic analysis that Fourier analysis lacked. Fourier analysis is ideal for studying stationary data, whose statistical properties are invariant over the time. Wavelets are designed to study these non stationary data in mind, and quickly become useful to a number of disciplines.
+
+\setlength{\parindent}{4ex}There are many type of wavelets such as Morlet wavelet, Daubechies, Haar wavelelts etc. In this project, we have used Haar wavelet for the functional approximation. (See Figure 1). \\
+\begin{figure}[h]
+
+\centering
+
+    \includegraphics[scale=0.6]{papu.eps}
+
+    \caption{Haar Wavelet}
+
+\end{figure} 
+
+\newpage
+\subsection{Haar Approximation : Theory}
+
+Haar wavelet is a function defined on $\mathbb{R}$ which is defined as \\ 
+\begin{displaymath}
+H(t) = \left\{
+\begin{array}{lr}
+1 &  0 \leq t \textless \frac{1}{2} \\
+-1 &  \frac{1}{2} \leq t \textless 1 \\
+0 &  \text{  elsewhere}
+\end{array}
+\right
+\end{displaymath}
+
+We can do two operations on it namely Compression/Dilation and shifting it along the x axis. We need to produce a sequence of orthogonal functions using these two operations for the necessary approximation. \vspace{0.5cm}
+
+\setlength{\parindent}{0ex}For $i=1,2,...,$ write $i=2^j+k$ with $j=0,1,...$ & and $k=0,1,2,...,2^j-1$. 
+define $h_i(t) = 2^\frac{j}{2}H(2^j t-k)$. It may be shown that the sequence $(h_i) \limits_0^\infty$ is an orthogonal system in $L^2[0,1]$. Therefore, for $u \in C[0,1]$, the series $\sum_i <u,h_i> h_i$ converges uniformly to $u$. Therefore a function $u(t)$ can be decomposed as $u(t)=\sum_0^\infty c_ih_i(t)$ where $c_i = \int_0^1 u(t)h_i(t)dt$. However, in practice, only $k$ terms are considered, where k is power of 2. So we can safely write 
+u(t) as approximately $\sum_0^k^-^1 c_ih_i(t)$ which can be represented as $u_k(t)$.
+\\
+\subsection{Haar Approximation: Implementation}
+
+The Implementation of the above algorithm is as follows:
+{\fontfamily{pcr}\selectfont \lstinputlisting[language=Octave,caption=approx.m]{approx.m}}
+
+The corresponding output in MATLAB is as follows:\\ 
+\begin{figure}[h]
+
+\centering
+
+    \includegraphics[scale=0.7]{diffsolver1.eps}
+
+    \caption{Plot of the solution}
+
+\end{figure} 
+
+
